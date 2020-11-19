@@ -2,16 +2,14 @@ package customer;
 
 public class Customer {
 	protected int customerID;
-	protected String customerName;
+	protected static String customerName;
 	protected String customerGrade;
-	int bonusPoint;
-	double bonusRatio;
+	static int bonusPoint;
+	static double bonusRatio;
 	
 	public Customer() {
 		initCustomer();
 	}
-	
-	
 	public Customer(int customerID, String customerName) {
 		this.customerID = customerID;
 		this.customerName = customerName;
@@ -22,7 +20,7 @@ public class Customer {
 		bonusRatio =0.01;
 	}
 	
-	public int calcPrice(int price) {
+	public static int calcPrice(int price) {
 		bonusPoint += price*bonusRatio;
 		return price;
 	}
@@ -30,20 +28,14 @@ public class Customer {
 		return customerName +"님의 등급은"
 	+ customerGrade+"이며, 보너스포인트는"+bonusPoint+"입니다";
 	}
-
-
 	public void setCustomerID(int CustomerID) {
 	     this.customerID=customerID;
 	}
-
-
 	public void setCustomerName(String CustomerName) {
 		this.customerName = customerName;
 		
 	}
-
-
-	public String getCustomerName() {
+	public static String getCustomerName() {
 		return customerName;
 	}
 

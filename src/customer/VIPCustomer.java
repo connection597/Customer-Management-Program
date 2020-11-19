@@ -2,7 +2,7 @@ package customer;
 
 public class VIPCustomer  extends Customer{
 	private int agentID;
-	double saleRatio;
+	static double saleRatio;
 	
 	public VIPCustomer(int customerID, String customerName, int agentID) {
 		super(customerID, customerName);
@@ -12,12 +12,13 @@ public class VIPCustomer  extends Customer{
 		this.agentID = agentID;
 	}
 	
-	public int calcPrice(int price) {
+	public static int  calcPrice(int price) {
 		bonusPoint += price*bonusRatio;
 		return price -(int)(price*saleRatio);
 	}
 	public String showCustomerInfo() {
-		return super.showCustomerInfo() + "담당 상담원 번호는"+agentID+"입니다";
+		return super.showCustomerInfo() + "담당 상담원 번호는"
+	    +agentID+"입니다";
 	}
 	public int getAgentID() {
 		return agentID;
